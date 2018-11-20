@@ -82,7 +82,7 @@ var userController = (User) => {
     };
 
     var getUser = (req, res) => {
-        let uniqueID = req.connection.user;
+        let uniqueID = req.connection.user.toLowerCase();
         User.find({ uniqueID: uniqueID }, (err, user) => {
             if (err) {
                 console.log(chalk.red('No data found'));

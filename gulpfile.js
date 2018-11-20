@@ -12,6 +12,11 @@ gulp.task('env:dev', (done) => {
     done();
 });
 
+gulp.task('env:prod', (done) => {
+    process.env.NODE_ENV = 'production';
+    done();
+})
+
 gulp.task('eslint', () => {
     var assets = _.union(
         defaultAssets.server.allJS,
@@ -48,6 +53,14 @@ gulp.task('nodemon', () => {
     });
 });
 
+gulp.task('nodemon-nodebug', () => {
+    return plugins.nodemon({
+        script: 'server.js',
+        ext: 'js',
+        ignore: ['./node_modules/**']
+    })
+})
+
 gulp.task('makeUploadBlogDir', (done) => {
     return fs.mkdir('public//blog-images', (err) => {
         if (err && err.code !== 'EEXIST') {
@@ -82,3 +95,6 @@ gulp.task('default', gulp.series('env:dev', 'makePublicFolder', gulp.parallel('m
     console.log(process.env.NODE_ENV);
 });
 
+gulp.task('prod', gulp.series('env:prod', 'makePublicFolder', gulp.parallel('makeUploadBlogDir', 'makeUploadProfileDir'), 'nodemon-nodebug'), () => {
+    console.log(process.env.NODE_ENV);
+})
