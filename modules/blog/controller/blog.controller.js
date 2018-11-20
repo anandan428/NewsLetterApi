@@ -84,7 +84,7 @@ var blogController = (Blog, User) => {
     }
 
     var getBlogForReview = (req, res) => {
-        User.findOne({ uniqueID: req.connection.user }, (err, User) => {
+        User.findOne({ uniqueID: req.connection.user.toLowerCase() }, (err, User) => {
             if (err) {
                 res.status(500).send({
                     message: 'Internal server error'
