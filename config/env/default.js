@@ -6,7 +6,7 @@ module.exports = {
         promise: global.Promise,
         name: 'news-letter'
     }, 
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 8443,
     host: process.env.HOST || '127.0.0.1',
     uploads: {
         storage: process.env.UPLOADS_STORAGE || 'local',
