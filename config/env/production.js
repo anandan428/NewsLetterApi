@@ -4,7 +4,7 @@ module.exports = {
     port: process.env.PORT  || 8443,
     host: process.env.HOST || '0.0.0.0',
     db: {
-        uri: process.env.MONGODB_URI || 'mongodb://newsletter1-db:6dysjLZIMBlud80euhOPsE4kKJ9wceBUujbMOoQH2gAPBQEH182wAz3fgNMWQU4Q4ADnipV5OGzeBFFqvbsVoQ==@newsletter1-db.documents.azure.com:10255/?ssl=true',
+        uri: process.env.MONGODB_URI || 'mongodb://newsletter-cosmos:josOnx8KVWU4ZpD0aKGgSdiQN9DOzvToI7R3Af5Ewupa6hTkMHtijC30InHQ18rlcObYYzSFlY4S56UlKcFFGQ==@newsletter-cosmos.documents.azure.com:10255/?ssl=true',
         options: {
             useNewUrlParser: true
         },
