@@ -11,7 +11,7 @@ var userController = (User) => {
     var createOtherUser = (req, res) => {
         var user = new User(req.body);
         user.uniqueID = user.uniqueID.toLowerCase();
-        if(user.uniqueID.indexOf("vcn") === -1){
+        if (user.uniqueID.indexOf("vcn") === -1) {
             user.uniqueID = "vcn\\" + user.uniqueID;
         }
         user.save((err, data) => {
@@ -28,7 +28,7 @@ var userController = (User) => {
     }
 
     var create = (req, res) => {
-        var user = new User(req.body);
+        var user = req.body;
         user.uniqueID = req.connection.user.toLowerCase();
         delete user._id;
         if (user.uniqueID) {
@@ -47,6 +47,7 @@ var userController = (User) => {
                     });
                 } else {
                     res.json(Users);
+                    console.log(Users);
                 }
             });
         } else {
@@ -61,7 +62,7 @@ var userController = (User) => {
      */
     var getByUserId = (req, res) => {
         // var id = req.params.userId;
-        let uniqueID = "VCN\\" + req.query.userId; 
+        let uniqueID = "VCN\\" + req.query.userId;
         User.find({
             uniqueID: uniqueID.toLowerCase()
         }, (err, user) => {
