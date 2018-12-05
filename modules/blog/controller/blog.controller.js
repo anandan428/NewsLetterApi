@@ -6,7 +6,7 @@ var _ = require('lodash'),
 
 var blogController = (Blog, User) => {
     var create = (req, res) => {
-        var blog = req.body;
+        var blog = new Blog(req.body);
         blog.modified = Date.now();
         Blog.findOneAndUpdate({ _id: blog.id }, blog, {
             upsert: true,

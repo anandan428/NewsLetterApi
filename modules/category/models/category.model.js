@@ -24,6 +24,10 @@ var CategorySchema = new Schema({
         type: Boolean,
         default: true
     },
+    coverImage: {
+        type: String,
+        default: ''
+    },
     blog: [{
         type: Schema.Types.ObjectId,
         ref: 'Blog' 

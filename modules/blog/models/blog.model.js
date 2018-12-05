@@ -14,6 +14,10 @@ var CardSchema = new Schema({
         type: String,
         default: ''
     },
+    type: {
+        type: String,
+        default: 'S'
+    },
     body: {
         type: String,
         default: 'Body of the card'

@@ -45,7 +45,7 @@ gulp.task('nodemon', () => {
         ext: 'js',
         verbose: true,
         env: {
-            PORT: 85
+            PORT: 8000
         },
         ignore: ['./node_modules/**']
     }).on('restart', () => {

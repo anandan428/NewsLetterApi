@@ -47,7 +47,6 @@ var userController = (User) => {
                     });
                 } else {
                     res.json(Users);
-                    console.log(Users);
                 }
             });
         } else {

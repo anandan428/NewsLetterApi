@@ -26,6 +26,7 @@ var corsOptionsDelegate = (req, callback) => {
 }
 module.exports.initMiddleware = (app) => {
     app.use(cors(corsOptionsDelegate));
+    app.options('*', cors(corsOptionsDelegate));
     app.use(bodyParser.json());
 
     if (_.has(config, 'log.format')) {

@@ -11,6 +11,8 @@ module.exports = (app, { Blog, User }) => {
     })).route('/api/Blog/picture')
         .post(blogController.uploadImage);
 
+    // app.route('/api/Blog/review')
+    // .get(blogController.getBlogForReview);
     app.use((req, res, next) => {
         var nodeSSPI = require('node-sspi');
         var nodeSSPIObj = new nodeSSPI({
